@@ -1,0 +1,9 @@
+import keras  #imports keras
+import numpy as np
+from keras.models import Sequential #for particular sequential function
+model = keras.Sequential([keras.layers.Dense(units=1, input_shape=[1])]) #single NN layer with single I/P(x) where model is trained with them
+model.compile(optimizer='sgd', loss='mean_squared_error')#(compilation)model predicts ans,loss is used the measure of gain/loss(mse)& sgd for dec loss by inc soln
+xs = np.array([1.0,2.0,3.0,11.0,4.0,12.0,5.0,6.0],dtype=float) #numpy array with IP's x
+ys = np.array([1.0,4.0,9.0,121.0,16.0,144.0,25.0,36.0], dtype=float) 
+model.fit(xs, ys, epochs=100) #epochs->no. of loops (model is trained epoch times everytime loss and optimizer is done using fit function we fit x,y's)
+print(model.predict([10])) #for predicting a new value 
